@@ -1,0 +1,810 @@
+@font-face {
+    font-family: 'Frutiger'; 
+    src: url('frutiger/Frutiger.woff2') format('truetype');
+    src: url('frutiger/Frutiger_bold.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'Frutiger', sans-serif;
+
+}
+
+.cielo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+/* Parte Grid */
+.App {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+
+}
+
+@media (min-width: 770px) and (min-height: 770px) {
+    .App {
+        align-items: center;
+        height: 100vh
+    }
+}
+
+svg {
+    border-radius: 10px
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(12, auto);
+    gap: 10px;
+    padding: 50px 10px
+}
+
+.grid .block:nth-of-type(1) {
+    grid-row: 2/4;
+    grid-column: 1/4
+}
+
+.grid .block:nth-of-type(2) {
+    grid-row: 4/6;
+    grid-column: 1/4
+}
+
+.grid .block:nth-of-type(3) {
+    grid-row: 6/8;
+    grid-column: 1/4
+}
+
+.grid .big-block {
+    grid-row: 8/11;
+    grid-column: 1/4
+}
+
+.grid .small-block {
+    grid-row: 11;
+    grid-column: 1/4
+}
+
+@media (min-width: 770px) {
+    .grid {
+        grid-template-columns: repeat(6, auto);
+        grid-template-rows: repeat(6, auto)
+    }
+
+    .grid .block:nth-of-type(1) {
+        grid-row: 2/4;
+        grid-column: 1/4
+    }
+
+    .grid .block:nth-of-type(2) {
+        grid-row: 4/6;
+        grid-column: 1/4
+    }
+
+    .grid .block:nth-of-type(3) {
+        grid-row: 1/3;
+        grid-column: 4/7
+    }
+
+    .grid .big-block {
+        grid-row: 3/6;
+        grid-column: 4/7
+    }
+
+    .grid .small-block {
+        grid-row: 6;
+        grid-column: 1/6
+    }
+}
+
+.block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: inherit
+}
+
+.big-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: inherit
+}
+
+.small-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: inherit
+}
+
+@media (min-width: 770px) {
+    .small-block {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(1, 1fr)
+    }
+}
+
+.block:nth-of-type(1) *:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1/3
+}
+
+.block:nth-of-type(2) *:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1/3
+}
+
+.block:nth-of-type(2) *:nth-of-type(4) {
+    grid-column: 3;
+    grid-row: 1/3
+}
+
+.block:nth-of-type(3) *:nth-of-type(5) {
+    grid-column: 3;
+    grid-row: 1/3
+}
+
+.big-block *:nth-child(2) {
+    grid-column: 2/4;
+    grid-row: 1
+}
+
+.big-block *:nth-child(7) {
+    grid-column: 3;
+    grid-row: 2/4
+}
+
+.small-block *:nth-child(2) {
+    grid-column: 2/4;
+    grid-row: 1
+}
+
+@media (max-width: 389px) {
+
+    .day,
+    .day>svg {
+        width: calc((100vw - 40px) / 3);
+        height: calc((100vw - 40px) / 3)
+    }
+
+    .block:nth-of-type(1)>*:nth-of-type(2),
+    .block:nth-of-type(1)>*:nth-of-type(2) svg,
+    .block:nth-of-type(2)>*:nth-of-type(1),
+    .block:nth-of-type(2)>*:nth-of-type(1) svg,
+    .block:nth-of-type(2)>*:nth-of-type(4),
+    .block:nth-of-type(2)>*:nth-of-type(4) svg,
+    .block:nth-of-type(3)>*:nth-of-type(5),
+    .block:nth-of-type(3)>*:nth-of-type(5) svg {
+        width: calc((100vw - 40px) / 3);
+        height: calc((100vw - 40px) / 3 * 2 + 10px)
+    }
+
+    .big-block>*:nth-child(2),
+    .big-block>*:nth-child(2) svg,
+    .small-block>*:nth-child(2),
+    .small-block>*:nth-child(2) svg {
+        width: calc((100vw - 40px) / 3 * 2 + 10px);
+        height: calc((100vw - 40px) / 3)
+    }
+
+    .big-block>*:nth-child(3) div {
+        width: calc((100vw - 40px) / 3) !important;
+        height: calc((100vw - 40px) / 3) !important
+    }
+}
+
+.hello {
+    color: #f5eed7;
+    font-weight: 700;
+    font-family: Fredoka One, cursive;
+    background-color: #16212b;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.day[data-astro-cid-vde5hcze] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    background: #fff;
+    border-radius: 10px;
+    perspective: 500px
+}
+
+.day[data-astro-cid-vde5hcze] .cover[data-astro-cid-vde5hcze] {
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Fredoka One, cursive;
+    font-size: 3em;
+    transform-origin: left top;
+    transition: 1s ease-in-out
+}
+
+.day[data-astro-cid-vde5hcze] .title[data-astro-cid-vde5hcze] {
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    pointer-events: none
+}
+
+.day[data-astro-cid-vde5hcze]:hover {
+    z-index: 10
+}
+
+.day[data-astro-cid-vde5hcze]:hover .cover[data-astro-cid-vde5hcze] {
+    transform: rotateY(-100deg)
+}
+
+.day[data-astro-cid-vde5hcze]:nth-of-type(5n-4) .cover[data-astro-cid-vde5hcze] {
+    background-color: #2f3029;
+    color: #f5eed7
+}
+
+.day[data-astro-cid-vde5hcze]:nth-of-type(5n-3) .cover[data-astro-cid-vde5hcze] {
+    background-color: #b73a3b;
+    color: #f5eed7;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 100 100'><circle cx='25' cy='25' r='15' fill='%239B2D2B'/><circle cx='75' cy='75' r='16' fill='%239B2D2B'/></svg>")
+}
+
+.day[data-astro-cid-vde5hcze]:nth-of-type(5n-2) .cover[data-astro-cid-vde5hcze] {
+    background-color: #f5eed7;
+    color: #252721;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='47.5' height='47.5' viewBox='0 0 100 100'><path d='M 25 10 L 25 17 M 25 33 L 25 40 M 10 25 L 17 25 M 33 25 L 40 25' stroke='%23CD803D' stroke-width='6' stroke-linecap='round' /><circle cx='75' cy='75' r='4' fill='%23CD803D'/></svg>")
+}
+
+.day[data-astro-cid-vde5hcze]:nth-of-type(5n-1) .cover[data-astro-cid-vde5hcze] {
+    background-color: #b7c7b0;
+    color: #252721;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 120 120'><polygon fill='%2393A891' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/></svg>")
+}
+
+.day[data-astro-cid-vde5hcze]:nth-of-type(5n-0) .cover[data-astro-cid-vde5hcze] {
+    background-color: #b73a3b;
+    color: #f5eed7;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 100 100'><path d='M 0 25 L 25 0 M 0 50 L 50 0 M 0 75 L 75 0 M 0 100 L 100 0 M 0 125 L 125 0 M 0 150 L 150 0 M 0 175 L 175 0' stroke='%239B2D2B' stroke-width='6' /></svg>")
+}
+
+nav[data-astro-cid-btuddemi] {
+    color: #fff;
+    opacity: .8;
+    font-family: "Source Sans 3 Variable", sans-serif;
+    padding: 20px;
+    max-width: 770px
+}
+
+
+/* Dibujos svg, ventanas ambiento y animaciones*/
+
+@keyframes astroFadeInOut {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes astroFadeIn {
+    0% {
+        opacity: 0;
+        mix-blend-mode: plus-lighter
+    }
+
+    to {
+        opacity: 1;
+        mix-blend-mode: plus-lighter
+    }
+}
+
+@keyframes astroFadeOut {
+    0% {
+        opacity: 1;
+        mix-blend-mode: plus-lighter
+    }
+
+    to {
+        opacity: 0;
+        mix-blend-mode: plus-lighter
+    }
+}
+
+@keyframes astroSlideFromRight {
+    0% {
+        transform: translate(100%)
+    }
+}
+
+@keyframes astroSlideFromLeft {
+    0% {
+        transform: translate(-100%)
+    }
+}
+
+@keyframes astroSlideToRight {
+    to {
+        transform: translate(100%)
+    }
+}
+
+@keyframes astroSlideToLeft {
+    to {
+        transform: translate(-100%)
+    }
+}
+
+@media (prefers-reduced-motion) {
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important
+    }
+
+    [data-astro-transition-scope] {
+        animation: none !important
+    }
+}
+
+.wave[data-astro-cid-cmlbaz6x] {
+    position: absolute;
+    left: -500px;
+    bottom: 0;
+    z-index: -1
+}
+
+@media (max-width: 550px) {
+    .wave[data-astro-cid-cmlbaz6x] {
+        left: -800px
+    }
+}
+
+.sleigh[data-astro-cid-cmlbaz6x] {
+    offset-path: path("M -815 200 C -515 200 -275 50 0 50 C 275 50 515 200 815 200 L 815 450 L -815 450 Z");
+    animation: roller-coaster 16s infinite linear
+}
+
+@keyframes roller-coaster {
+    0% {
+        offset-distance: 0%
+    }
+
+    to {
+        offset-distance: 100%
+    }
+}
+
+footer[data-astro-cid-sz7xmlte] {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 80px;
+    padding: 40px;
+    position: relative;
+    max-width: 550px
+}
+
+@media screen and (min-width: 550px) {
+    footer[data-astro-cid-sz7xmlte] {
+        width: 550px
+    }
+}
+
+footer[data-astro-cid-sz7xmlte]>[data-astro-cid-sz7xmlte]:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px
+}
+
+.title[data-astro-cid-sz7xmlte] {
+    text-align: center;
+    text-wrap: balance;
+    font-size: 1.5em;
+    font-weight: 700
+}
+
+.made-by[data-astro-cid-sz7xmlte] {
+    font-size: .9em
+}
+
+.coffee[data-astro-cid-sz7xmlte] {
+    display: flex;
+    align-items: center;
+    background-color: #fcba28;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none
+}
+
+li[data-astro-cid-sz7xmlte] {
+    margin-bottom: .7em;
+    list-style-type: none
+}
+
+.cardSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+
+    &:first-of-type {
+        margin-top: 100px
+    }
+
+    &:last-of-type {
+        margin-bottom: 100px
+    }
+
+    h2 {
+        margin-bottom: .3em
+    }
+
+    p {
+        color: #8b8b8b;
+        margin: 0 0 1.4em
+    }
+
+    width:200px;
+
+    @media (min-width: 420px) {
+        width: 420px
+    }
+
+    @media (min-width: 640px) {
+        width: 640px
+    }
+}
+
+.cards {
+    display: grid;
+    width: 100%;
+    gap: 20px;
+
+    @media (min-width: 420px) {
+        grid-template-columns: 1fr 1fr
+    }
+
+    @media (min-width: 640px) {
+        grid-template-columns: 1fr 1fr 1fr
+    }
+}
+
+.cardElement {
+    stroke: var(--curve-color);
+    stroke-width: 20;
+    stroke-linecap: round
+}
+
+.cardHelperLine {
+    stroke: var(--helper-color);
+    stroke-width: 1;
+    stroke-dasharray: 20, 20
+}
+
+.cardHelperDrag {
+    fill: var(--draggable-color)
+}
+
+.cardHelperCurve {
+    stroke: var(--curve-alternative-color);
+    stroke-width: 10
+}
+
+a[data-astro-cid-ye7oyvcs] {
+    text-decoration: none
+}
+
+a[data-astro-cid-ye7oyvcs]:hover {
+    text-decoration: underline
+}
+
+.card-container[data-astro-cid-ye7oyvcs] {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    width: fit-content;
+
+    svg {
+        width: 200px;
+        height: 200px;
+        fill: none
+    }
+}
+
+.title[data-astro-cid-ye7oyvcs] {
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 500
+}
+
+iframe[data-astro-cid-ezejl7ty] {
+    max-width: 100%;
+    border: 0;
+    padding: 20px 0
+}
+
+
+
+.footer-container {
+
+    margin-top: 10%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: #151515;
+    margin: 0
+}
+
+a,
+a:visited {
+    color: inherit
+}
+
+* {
+    box-sizing: border-box
+}
+
+.head[data-astro-cid-e4k5yxx7] {
+    fill: #cd803d
+}
+
+.eye[data-astro-cid-e4k5yxx7] {
+    fill: #fff
+}
+
+.mouth[data-astro-cid-e4k5yxx7] {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px
+}
+
+.limb[data-astro-cid-e4k5yxx7] {
+    stroke: #cd803d;
+    stroke-width: 35px;
+    stroke-linecap: round
+}
+
+.bear[data-astro-cid-euoqyzz3] {
+    background-color: #f5eed7;
+    
+    
+
+}
+
+.bear[data-astro-cid-euoqyzz3] .ear[data-astro-cid-euoqyzz3] {
+    fill: #e5c39c;
+    stroke: #fff;
+    stroke-width: 5
+}
+
+.bear[data-astro-cid-euoqyzz3] .face[data-astro-cid-euoqyzz3] {
+    fill: #fff
+}
+
+.bear[data-astro-cid-euoqyzz3] .mouth[data-astro-cid-euoqyzz3] {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2
+}
+
+#windmill-head[data-astro-cid-vxcueryo] {
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.house[data-astro-cid-yr26ksso] {
+    stroke: #000;
+    stroke-width: 2px;
+    fill: #fff
+}
+
+.house[data-astro-cid-yr26ksso] .roof[data-astro-cid-yr26ksso] {
+    fill: none;
+    stroke: #d1495b;
+    stroke-width: 10px;
+    stroke-linecap: round
+}
+
+.house[data-astro-cid-yr26ksso] .door[data-astro-cid-yr26ksso] {
+    fill: #d1495b
+}
+
+.house[data-astro-cid-yr26ksso] .stair[data-astro-cid-yr26ksso] {
+    fill: gray
+}
+
+.house[data-astro-cid-yr26ksso] .window[data-astro-cid-yr26ksso] {
+    fill: #fdea96
+}
+
+.house[data-astro-cid-yr26ksso] .window-sill[data-astro-cid-yr26ksso] {
+    fill: #d1495b;
+    stroke-linecap: round
+}
+
+.gift[data-astro-cid-ts5m3rd2] .box[data-astro-cid-ts5m3rd2] {
+    fill: #d1495b;
+    stroke: #000;
+    stroke-width: 2px
+}
+
+.gift[data-astro-cid-ts5m3rd2] .stripe[data-astro-cid-ts5m3rd2] {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 2px
+}
+
+.gift[data-astro-cid-ts5m3rd2] .ribbon[data-astro-cid-ts5m3rd2] {
+    stroke: #b73a3b;
+    stroke-width: 4px;
+    fill: none
+}
+
+.sleigh[data-astro-cid-du77e2z6] {
+    offset-path: path("M-200 80 L -90 80 Q 60 80 60 -10 A 50 50 0 0 0 -60 -10 Q -60 80 90 80 L 200 80");
+    animation: roller-coaster 6s infinite linear
+}
+
+@keyframes roller-coaster {
+    0% {
+        offset-distance: 0%
+    }
+
+    to {
+        offset-distance: 100%
+    }
+}
+
+.bell[data-astro-cid-sg3omptj] {
+    transform-origin: 0 -45px
+}
+
+svg[data-astro-cid-sg3omptj]:hover .bell[data-astro-cid-sg3omptj],
+svg[data-astro-cid-sg3omptj]:hover .bell-clapper[data-astro-cid-sg3omptj] {
+    animation-duration: .5s;
+    animation-delay: -.25s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-name: ring
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(-20deg)
+    }
+
+    to {
+        transform: rotate(20deg)
+    }
+}
+
+.background[data-astro-cid-otqhzax4] {
+    display: block;
+    width: 100%;
+    height: calc(200px * var(--size));
+    background-color: #38755b;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolyline fill='none' stroke='%230c5c4c' stroke-width='42.4' points='-30 0 60 90 150 0'/%3E%3C/svg%3E")
+}
+
+.round[data-astro-cid-otqhzax4] {
+    border-radius: 10px
+}
+
+@media (min-width: 900px) {
+    .background[data-astro-cid-otqhzax4] {
+        height: 100%
+    }
+}
+
+#bulb[data-astro-cid-qzyhqiz3] {
+    cursor: pointer
+}
+
+.snowflake {
+    --duration: 5s
+}
+
+.snowflake.fast {
+    --duration: 3s
+}
+
+.snowflake {
+    animation-duration: var(--duration);
+    animation-name: snowing;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: calc(-1 * var(--duration) * (var(--y) / 200))
+}
+
+@keyframes snowing {
+    0% {
+        transform: translateY(-100px)
+    }
+
+    to {
+        transform: translateY(100px)
+    }
+}
+
+:root {
+    --background-color: #f6f7f9;
+    --code-background-color: #24292e;
+    --mainViewBox: 450px;
+    --code-height: 180px;
+    --corner-color: #939495;
+    --curve-color: hsl(0, 95%, 60%);
+    --curve-alternative-color: rgba(226, 226, 226, .468);
+    --curve-alternative-hover-color: hsl(0, 95%, 60%);
+    --helper-color: dimgray;
+    --draggable-color: hsla(0, 0%, 82%, .585);
+    --draggable-hover-color: rgba(96, 0, 30, .8);
+    --draggable-text-color: transparent;
+    --draggable-text-hover-color: black;
+    --draggable-icon-color: dimgray;
+    --draggable-icon-hover-color: white;
+    --dragging-color: rgba(193, 0, 61, .8);
+    --dragging-text-color: black;
+    --dragging-icon-color: white
+}
+
+.arm[data-astro-cid-fd7opwzm] {
+    stroke: #000;
+    stroke-width: 7;
+    stroke-linecap: round
+}
+
+#head[data-astro-cid-fd7opwzm] {
+    cursor: grab
+}
