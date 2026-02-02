@@ -768,7 +768,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .main-index {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   position: relative;
   padding: 80px 0;
@@ -892,42 +892,6 @@ html body.index-page.scrolled footer#footer.footer.dark-background{
   margin-right: 20px;
   transition: 0.3s;
 }
-
-
-
-
-/*
-.hero .social-links a i {
-
-  background-color: color-mix(in srgb, var(--default-color), transparent 90%);
-  color: var(--default-color);
-
-  
-  
-  
-}
-
-.hero .social-links a i::after {
-  height: 50px;
-  width: 50px;
-  background: transparent;
-  border-radius: 50%;
-  opacity: 0.8;
-  border: 2px solid rgba(29, 28, 30, 0.2);
-}
-
-.hero .social-links a i::before {
-  height: 100%;
-  width: 100%;
-  background: transparent;
-  border-radius: 50%;
-  box-shadow: -20px 30px 16px rgba(29, 28, 30, 0.3), 
-  -40px 60px 32px rgba(29, 28, 30, 0.3), 
-  inset -6px 6px 10px rgba(29, 28, 30, 0.3), 
-  inset 2px 6px 10px rgba(29, 28, 30, 0.5), 
-  inset 20px -20px 22px white, 
-  inset 40px -40px 44px rgba(29, 28, 30, 0.2);
-} */
 
 .hero .social-links a:hover {
   background-color: var(--accent-color);
