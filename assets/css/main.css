@@ -10,6 +10,11 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
+
+*{
+  max-width: 100%;
+}
+
 @font-face {
   font-family: 'Frutiger';
   src: url('../fonts/frutiger/Frutiger.woff2') format('truetype');
@@ -87,6 +92,7 @@ body {
   background-color: var(--background-color);
   font-family: var(--default-font);
   cursor: url('../cursor/Normal_Select.cur'), auto;
+  
 }
 
 a {
@@ -110,20 +116,19 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
-  -webkit-text-stroke: 0.5px black;
   cursor: url('../cursor/Text.cur'), auto;
 }
 
-p {
+/* p {
   -webkit-text-stroke: 0.5px black;
   font-weight: 700;
   font-size: large;
   cursor: url('../cursor/Text.cur'), auto;
-}
-span{
+} */
+/* span{
   -webkit-text-stroke: 0.8px black;
   font-weight: 600;
-}
+} */
 
 /* PHP Email Form Messages
 ------------------------------*/
@@ -228,6 +233,7 @@ span{
 .scrolled .header {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Global Header on Scroll
 ------------------------------*/
@@ -482,17 +488,41 @@ span{
     margin-right: 0;
     z-index: 9999;
   }
-
   .mobile-nav-active .navmenu {
     position: fixed;
-    overflow: hidden;
     inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
+    background: rgba(33, 37, 41, 0.68); 
+    z-index: 9999; 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mobile-nav-active .navmenu>ul {
     display: block;
+    border-radius:20px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 174, 255, 0.65) 0%,   
+        
+        rgba(135, 206, 250, 0.55) 40%,  
+        
+        rgba(135, 206, 250, 0.45) 100% 
+    );
+
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.5); 
+
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.6),           
+        inset 0 1px 0 rgba(255, 255, 255, 0.5), 
+        inset 0 0 40px rgba(0, 20, 50, 0.6);    
+
+    
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -583,6 +613,9 @@ span{
   padding-top: 5px;
 }
 
+.footer .container .container .copyright span{
+  -webkit-text-stroke: 0.0px #000000;
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -779,6 +812,10 @@ section,
 
 }
 
+.hero .container h2, .hero .container p{
+   -webkit-text-stroke: 0.45px black;
+} 
+
 .main-index img {
   position: absolute;
   inset: 0;
@@ -877,25 +914,47 @@ html body.index-page.scrolled footer#footer.footer.dark-background{
 
 .hero .social-links {
   margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero .social-links a {
 
-  background: transparent;
-  font-size: 14px;
-  width: 40px;
-  height: 40px;
+  background: linear-gradient(to bottom,
+      rgba(230, 240, 255, 0.7) 0%,
+
+      rgba(230, 240, 255, 0.3) 25%,
+
+      rgba(230, 240, 255, 0.15) 100%
+    );
+  
+  color: var(--nav-color);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+
+    inset 0 1px 3px rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
   transition: 0.3s;
+  margin: 15px;
+
+  
 }
 
 .hero .social-links a:hover {
-  background-color: var(--accent-color);
-  opacity: 0.5;
+  color: rgba(0, 174, 255, 0.65);
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
@@ -965,8 +1024,8 @@ html body.index-page.scrolled footer#footer.footer.dark-background{
   padding: 1%;
 
   background: linear-gradient(to bottom,
-      rgba(230, 240, 255, 0.7) 0%,
-      rgba(230, 240, 255, 0.3) 25%,
+      rgba(230, 240, 255, 0.774) 0%,
+      rgba(32, 85, 163, 0.377) 25%,
       rgba(230, 240, 255, 0.15) 100%
     );
 
@@ -1010,6 +1069,43 @@ html body.index-page.scrolled footer#footer.footer.dark-background{
 
 
 
+
+
+
+.resume .container .row{
+  margin: 10%;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 991px) {
+  .resume .container .row{
+    flex-wrap: wrap;
+  }
+}
+
+.resume .container .row .col-lg-6{
+  border-radius: 20px;
+  margin: 5px;
+
+
+  background: linear-gradient(to bottom,
+      rgba(230, 240, 255, 0.774) 0%,
+      rgba(32, 85, 163, 0.377) 25%,
+      rgba(230, 240, 255, 0.15) 100%
+    );
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.9);
+  
+
+}
+
+
 html body.resume-page.scrolled main.main section#skills.skills.section div.container.aos-init.aos-animate div.row.skills-content.skills-animation div.col-lg-6 div.progress span.skill.skill1 span::before{
   content: url(../img/personal/spain.png);
   display: flex;
@@ -1023,6 +1119,14 @@ html body.resume-page.scrolled main.main section#skills.skills.section div.conta
   display: flex;
   width: 25px;
   height: 25px;
+
+}
+
+@media (max-width: 991px){
+  .container .skills-content .col-lg-6{
+    margin: 1%;
+  }
+    
 
 }
 
@@ -1856,8 +1960,8 @@ html body.contact-page main.main section#contact.contact.section div.container.a
 .contact .info-item .icon {
   color: var(--contrast-color);
   background-color: var(--accent-color);
-  width: 56px;
-  height: 56px;
+  width:58px;
+  height: 58px;
   font-size: 24px;
   display: flex;
   justify-content: center;
@@ -1950,18 +2054,16 @@ html body.contact-page main.main section#contact.contact.section div.container.a
 
 .col-lg-4-Perfil {
 
-
   padding: 25px;
   width: fit-content;
+  margin: 1%;
 
   border-radius: 20px;
 
   
   background: linear-gradient(to bottom,
-      rgba(230, 240, 255, 0.7) 0%,
-      
-      rgba(230, 240, 255, 0.3) 25%,
-
+      rgba(230, 240, 255, 0.774) 0%,
+      rgba(32, 85, 163, 0.377) 25%,
       rgba(230, 240, 255, 0.15) 100%
 
     );
@@ -1987,6 +2089,35 @@ html body.contact-page main.main section#contact.contact.section div.container.a
 }
 
 
+.col-lg-8 {
+  padding: 15px;
+  width: fit-content;
+  border-radius: 20px;
+
+  
+  background: linear-gradient(to bottom,
+      rgba(230, 240, 255, 0.774) 0%,
+      rgba(32, 85, 163, 0.377) 25%,
+      rgba(230, 240, 255, 0.15) 100%
+
+    );
+
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.9);
+
+}
+
+.about.container .row div{
+  flex-wrap: nowrap;
+  margin: 15px;
+
+} 
 
 
 .about .content h2 {
