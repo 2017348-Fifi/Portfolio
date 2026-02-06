@@ -3321,3 +3321,47 @@ html body.scrolled main.main section#service-details-2.service-details-2.section
 .border{
   border: none;
 }
+
+/* 1. Hacemos que el contenedor del carrusel se comporte como una caja flexible */
+.related-carousel .owl-stage {
+    display: flex;
+}
+
+/* 2. Forzamos a cada item del carrusel a ocupar el 100% de la altura disponible */
+.related-carousel .owl-item {
+    display: flex;
+    flex: 1 0 auto; /* Permite que los items mantengan su ancho pero se estiren */
+}
+
+/* 3. Estructuramos la tarjeta para que sea una columna flexible */
+.related-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* 4. IMPORTANTE: Control de imágenes. 
+   Esto evita que una imagen vertical deforme la tarjeta. 
+   Ajusta "250px" a la altura que mejor te parezca. */
+.related-item-inner-item img {
+    height: 350px; 
+    width: 100%;
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin estirarse */
+}
+
+/* 5. Truco para alinear botones:
+   Hacemos que la parte interior crezca para empujar el botón "Añadir" siempre al fondo */
+.related-item-inner {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hacemos que el contenedor del texto (título y precio) ocupe el espacio sobrante */
+.related-item-inner .text-center {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinea el precio al final del bloque de texto */
+}
